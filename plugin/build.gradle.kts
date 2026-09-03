@@ -12,7 +12,7 @@ plugins {
 // JitPack consumers are unaffected: it archives whatever the build publishes
 // and keeps serving historical tags built with the old group.
 group = "tech.thessemaj"
-version = findProperty("VERSION_NAME")?.toString() ?: "2.7.0"
+version = findProperty("VERSION_NAME")?.toString() ?: "2.8.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
