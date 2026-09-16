@@ -1,0 +1,6 @@
+id=hydra_zygisk_rot_spoof
+name=hydra Zygisk RootOfTrust Spoof (adversarial)
+version=v0.1
+versionCode=1
+author=hydra adversarial suite
+description=Research ONLY. Native Zygisk module. In io.ssemaj.raven.sample ONLY, GOT-hooks ioctl and rewrites the KeyMint attestation RootOfTrust verifiedBootState (SelfSigned->Verified) in the binder reply DER (setprop hydra.rot.mode bs|full|off). No-op for every other app. Tests whether DeviceIntelligence survives an in-process boot-state spoof. Do NOT ship.
