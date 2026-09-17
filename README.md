@@ -173,7 +173,7 @@ Apply the plugin in your **app module's `build.gradle.kts`**:
 ```kotlin
 plugins {
     id("com.android.application")
-    id("tech.thessemaj.hydra") version "3.0.1"
+    id("tech.thessemaj.hydra") version "3.0.2"
 }
 ```
 
