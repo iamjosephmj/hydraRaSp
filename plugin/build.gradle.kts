@@ -12,7 +12,7 @@ plugins {
 // JitPack consumers are unaffected: it archives whatever the build publishes
 // and keeps serving historical tags built with the old group.
 group = "tech.thessemaj"
-version = findProperty("VERSION_NAME")?.toString() ?: "3.0.2"
+version = findProperty("VERSION_NAME")?.toString() ?: "3.0.3"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -21,8 +21,8 @@ java {
 
 dependencies {
     // Vendored baking logic + closed key derivation (the released 4.8.0 jars).
-    implementation(files("libs/deviceintelligence-gradle-4.9.2.jar"))
-    implementation(files("libs/deviceintelligence-baker-4.9.2.jar"))
+    implementation(files("libs/deviceintelligence-gradle-4.9.3.jar"))
+    implementation(files("libs/deviceintelligence-baker-4.9.3.jar"))
 
     // The bundled DeviceIntelligence plugin uses apksig at runtime to re-sign
     // the instrumented APK; it was `implementation` there, so we put it on
@@ -51,8 +51,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 // entries into our own jar makes the published plugin self-contained.
 tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from(zipTree("libs/deviceintelligence-gradle-4.9.2.jar")) { exclude("META-INF/**") }
-    from(zipTree("libs/deviceintelligence-baker-4.9.2.jar")) { exclude("META-INF/**") }
+    from(zipTree("libs/deviceintelligence-gradle-4.9.3.jar")) { exclude("META-INF/**") }
+    from(zipTree("libs/deviceintelligence-baker-4.9.3.jar")) { exclude("META-INF/**") }
 }
 
 tasks.test { useJUnitPlatform() }
