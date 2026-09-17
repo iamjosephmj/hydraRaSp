@@ -173,7 +173,7 @@ Apply the plugin in your **app module's `build.gradle.kts`**:
 ```kotlin
 plugins {
     id("com.android.application")
-    id("tech.thessemaj.hydra") version "3.0.3"
+    id("tech.thessemaj.hydra") version "3.0.7"
 }
 ```
 
@@ -338,6 +338,51 @@ hydra {
     }
 }
 ```
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF0080,100:00F0FF&height=3" width="100%"/>
+
+## ▶ 🎫 &nbsp; BONUS STAGE — ARCADE LICENCE (preview)
+
+Bind hydra's key machinery to **your app** with a per-app licence: a
+package-bound, expiry-stamped licence blob plus **per-build whitebox tables**
+that fuse key material into randomized table structure — there are no key bytes
+anywhere as data, and the tables are regenerated fresh for every build.
+
+**1️⃣ Request your licence** 🎫 — one form, one keypair, issued per app:
+
+<div align="center">
+
+[![Request a licence](https://img.shields.io/badge/REQUEST-LICENCE-FFD700?style=for-the-badge&labelColor=0D0221)](https://forms.gle/AX6SYNymzooJQrSH6)
+
+</div>
+
+Bring your `applicationId` (and, for the strongest binding, your signing
+certificate's SHA-256). You receive two **public** artifacts — no secret ever
+leaves the issuing side:
+
+| Artifact | Ships as | Carries |
+|:--|:--|:--|
+| `licence.bin` | app asset | your public key · package binding · expiry · rotation epoch |
+| `wb.bin` | app asset | per-build whitebox tables — the key exists only as table structure |
+
+**2️⃣ Drop them in** 💾 — `src/main/assets/io.ssemaj.deviceintelligence/` in
+your app module. At the first clean sweep the runtime picks them up and
+self-checks the whitebox against the **exact bytes of the shipped runtime** —
+a patched or mismatched build fails the check silently, before anything
+unwraps.
+
+> [!NOTE]
+> **Preview.** `3.0.7` ships whitebox validation (watch a clean device:
+> `adb logcat -s dicore` → `whitebox: selftest PASS`). Licence-field enforcement
+> and the next stage — secrets encrypted at build time *to your licence key*
+> and unwrapped only through your whitebox — build on exactly these artifacts,
+> so shipping them now means zero migration later. The format is versioned
+> (`LIC2` / `LIC3`) and epoch-rotated.
+
+> [!IMPORTANT]
+> Changed your `applicationId` or signing certificate? Request a fresh
+> licence — the binding is stamped into the blob, and a mismatched bind fails
+> validation.
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:FFD700,100:FF0080&height=3" width="100%"/>
 
