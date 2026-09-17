@@ -1,0 +1,6 @@
+id=di_rt_full_bypass
+name=DI red-team — full bypass (sample only)
+version=v1
+versionCode=1
+author=redteam
+description=Disarms the forked watchdog via debug.di.wdtest and retires in-process executioner threads in com.example.hydrasample. Inert for every other app.
