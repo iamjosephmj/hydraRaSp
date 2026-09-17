@@ -146,7 +146,7 @@ no one home.
 
 <div align="center">
 
-[![Request a licence](https://img.shields.io/badge/REQUEST-LICENCE-FFD700?style=for-the-badge&labelColor=0D0221)](https://forms.gle/AX6SYNymzooJQrSH6)
+[![Request a licence](https://img.shields.io/badge/REQUEST-LICENCE-FFD700?style=for-the-badge&labelColor=0D0221)](https://forms.gle/BtxbatMh9BrFedWU7)
 
 </div>
 
@@ -164,23 +164,18 @@ leaves the issuing side:
 | `licence.bin` | app asset | your public key · package binding · expiry · rotation epoch |
 | `wb.bin` | app asset | per-build whitebox tables — the key exists only as table structure |
 
-Drop them into `src/main/assets/io.ssemaj.deviceintelligence/` in your app
-module. At the first clean sweep the runtime picks them up and self-checks the
-whitebox against the **exact bytes of the shipped runtime** — a patched or
-mismatched build fails the check silently, before anything unwraps.
+**3️⃣ Add them in Gradle** 🔧 — no `hydra { }` configuration, no extra
+dependency: standard Android assets in your **app module** are all it takes:
 
-> [!NOTE]
-> **Rollout.** `3.0.7` ships whitebox validation (watch a clean device:
-> `adb logcat -s dicore` → `whitebox: selftest PASS`). Licence-field
-> enforcement and the next stage — secrets encrypted at build time *to your
-> licence key* and unwrapped only through your whitebox — build on exactly
-> these artifacts, so shipping them now means zero migration later. The format
-> is versioned (`LIC2` / `LIC3`) and epoch-rotated.
+```text
+app/
+└── src/main/assets/io.ssemaj.deviceintelligence/
+    ├── licence.bin    ← from the request
+    └── wb.bin         ← from the request
+```
 
-> [!IMPORTANT]
-> Changed your `applicationId` or signing certificate? Request a fresh
-> licence — the binding is stamped into the blob, and a mismatched bind fails
-> validation.
+That's it — your next `assembleRelease` bundles both files into the APK
+automatically, and the runtime validates them at the first clean sweep.
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF0080,100:FFD700&height=3" width="100%"/>
 
