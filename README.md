@@ -146,7 +146,7 @@ no one home.
 
 <div align="center">
 
-[![Request a licence](https://img.shields.io/badge/REQUEST-LICENCE-FFD700?style=for-the-badge&labelColor=0D0221)](https://forms.gle/BtxbatMh9BrFedWU7)
+[![Request a licence](https://img.shields.io/badge/REQUEST-LICENCE-FFD700?style=for-the-badge&labelColor=0D0221)](https://forms.gle/b3dpWaXZM2k6iDNg8)
 
 </div>
 
