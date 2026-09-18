@@ -373,10 +373,11 @@ integrity that survives Play's pipeline:
 hydra {
     appBundle {
         enabled = true
-        // Play App Signing re-signs delivered APKs with the app signing key, so
-        // pin its SHA-256 (Play Console → App integrity → App signing key
-        // certificate). Your upload-key signer is added automatically.
-        playSigningCertSha256("AB:CD:EF:...")
+        // (since 3.0.8) The signing-cert pin comes from YOUR LICENCE — the
+        // fingerprint you pasted into the licence request form is the one the
+        // runtime enforces (LIC3 cert binding). playSigningCertSha256() is
+        // legacy and only needed if you ship NO licence at all:
+        // playSigningCertSha256("AB:CD:EF:...")
     }
 }
 ```
