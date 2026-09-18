@@ -175,7 +175,9 @@ app/
 ```
 
 That's it — your next `assembleRelease` bundles both files into the APK
-automatically, and the runtime validates them at the first clean sweep.
+automatically, and the runtime **enforces** them at the first clean sweep (since
+`3.0.8`): package mismatch, signing-cert mismatch, and expiry are each lethal;
+a missing licence never kills a clean app.
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF0080,100:FFD700&height=3" width="100%"/>
 
@@ -214,7 +216,7 @@ Apply the plugin in your **app module's `build.gradle.kts`**:
 ```kotlin
 plugins {
     id("com.android.application")
-    id("tech.thessemaj.hydra") version "3.0.7"
+    id("tech.thessemaj.hydra") version "3.0.8"
 }
 ```
 
