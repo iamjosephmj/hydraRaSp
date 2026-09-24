@@ -22,6 +22,7 @@
   <a href="https://central.sonatype.com/artifact/tech.thessemaj/hydra"><img src="https://img.shields.io/maven-central/v/tech.thessemaj/hydra?style=for-the-badge&color=B026FF&labelColor=0D0221&label=MAVEN%20CENTRAL"/></a>
   <img src="https://img.shields.io/badge/KOTLIN-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white&labelColor=0D0221"/>
   <img src="https://img.shields.io/badge/GRADLE-02303A?style=for-the-badge&logo=gradle&logoColor=00F0FF&labelColor=0D0221"/>
+  <a href="https://github.com/sponsors/iamjosephmj"><img src="https://img.shields.io/badge/SPONSOR-FF0080?style=for-the-badge&logo=githubsponsors&logoColor=white&labelColor=0D0221"/></a>
 </p>
 
 <p>
